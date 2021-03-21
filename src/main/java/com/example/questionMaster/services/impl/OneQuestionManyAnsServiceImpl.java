@@ -62,8 +62,8 @@ public class OneQuestionManyAnsServiceImpl implements OneQuestionManyAnsServices
         ManyAnswer m4 = new ManyAnswer();
 
         m1.setAnswer("aman");
-        m2.setAnswer("Suraj");
-        m3.setAnswer("abhay");
+        m2.setAnswer("aditya");
+        m3.setAnswer("aditya");
         m4.setAnswer("Aditya");
         List<ManyAnswer> l1 = new ArrayList();
         List<ManyAnswer> l2 = new ArrayList();
@@ -71,12 +71,17 @@ public class OneQuestionManyAnsServiceImpl implements OneQuestionManyAnsServices
         l1.add(m2);
         l2.add(m3);
         l2.add(m4);
-        l2.forEach(it->
-        {
-            l2.remove()
-        });
+//        l2.stream().forEach(it->l2.stream().filter(st-> st.getAnswer().equals(it.getAnswer())));
 //        System.out.println(l1);
-        System.out.println(l2);
+        List<ManyAnswer> finalList = new ArrayList<>();
+        l1.forEach(it1 -> {
+            l2.forEach(it2 -> {
+                if (it1.getAnswer().equals(it2.getAnswer())) {
+                    finalList.add(it2);
+                }
+            });
+        });
+        System.out.println(finalList);
 
 
     }
